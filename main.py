@@ -4,10 +4,11 @@ import time
 import json
 import os
 
-app = FastAPI()
+# ✅ 修正成絕對路徑（支援 Render 等部署平台）
+DB_PATH = os.path.join(os.path.dirname(__file__), "devices.json")
 
+app = FastAPI()
 TRIAL_DURATION = 1800  # 30分鐘
-DB_PATH = "devices.json"
 
 # === 資料模型 ===
 class AuthRequest(BaseModel):
